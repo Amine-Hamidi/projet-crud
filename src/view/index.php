@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    table {
-      border-collapse: collapse;
+    .main{
       width: 60%;
       margin: 20px auto;
+    }
+    table {
+      border-collapse: collapse;
       font-family: Arial, sans-serif;
     }
 
@@ -35,39 +37,41 @@
   </style>
 
 </head>
-<body>
-<h1>Liste des Livres</h1>
+<body class="main">
+  <h1>Liste des Livres</h1>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>titre</th>
-      <th>auteur</th>
-      <th>categorie</th>
-      <th>stock</th>
-      <th>action</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach ($livres as $livre): ?>
-        <tr>
-          <td> <?php echo htmlspecialchars($livre->id); ?></td>
-           <td> <?php echo htmlspecialchars($livre->titre); ?> </td>
-           <td> <?php echo htmlspecialchars($livre->auteur); ?> </td>
-           <td> <?php echo htmlspecialchars($livre->categorie); ?> </td>
-           <td> <?php echo htmlspecialchars($livre->stock); ?> </td>
-          <td>
-            
-          <button class="btn btn-edit">Modifier</button>
-          <button class="btn btn-delete">Supprimer</button>
-          </td>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>titre</th>
+        <th>auteur</th>
+        <th>categorie</th>
+        <th>stock</th>
+        <th>action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($livres as $livre): ?>
+          <tr>
+            <td> <?php echo htmlspecialchars($livre->id); ?></td>
+            <td> <?php echo htmlspecialchars($livre->titre); ?> </td>
+            <td> <?php echo htmlspecialchars($livre->auteur); ?> </td>
+            <td> <?php echo htmlspecialchars($livre->categorie); ?> </td>
+            <td> <?php echo htmlspecialchars($livre->stock); ?> </td>
+            <td>
+              <a href="../service/gestionLivre.php?id=<?php echo $livre->id ?>&type=edit" class="btn btn-edit">Modifier</a>
+              <a href="../service/gestionLivre.php?id=<?php echo $livre->id ?>&type=delete" class="btn btn-delete">Supprimer</a>
+            </td>
 
-     </tr>
-    <?php endforeach; ?>
-  </tbody>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
 
-</table>
-</body>
+  </table>
+
+
+
+  </body>
 </html>
